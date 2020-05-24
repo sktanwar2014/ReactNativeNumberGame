@@ -29,7 +29,7 @@ const Home = () => {
   
     let content = <StartGameScreen onStartGame ={startGameHandler} />;
     if(userNumber && guessRounds <= 0){
-        content = <GameScreen userChoise={userNumber} onGameOver={gameOverHandler} />
+        content = <GameScreen userChoice={userNumber} onGameOver={gameOverHandler} />
     }else if(guessRounds > 0){
         content = <GameOverScreen roundsNumber={guessRounds} userNumber={userNumber} onRestart={configureNewGameHandler} />;
     }

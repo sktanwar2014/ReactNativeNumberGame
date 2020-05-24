@@ -10,7 +10,7 @@ import Card from '../components/Card.js';
 const generateRandomBetween = (min, max, exclude) => {
     min = Math.ceil(min);
     max = Math.floor(max);
-    const rndNum = Math.floor(Math.random() * (max - min)) + min;
+    const rndNum = Math.floor(Math.random() * (max - min)) + min;    
     if(rndNum === exclude){
         return generateRandomBetween(min, max, exclude);
     }else{
@@ -31,12 +31,11 @@ const GameScreen = props => {
 
     useEffect(() => {
         if(currentGuess === userChoice){
-            props.onGameOver(rounds);
+            onGameOver(rounds);
         }
     },[userChoice, currentGuess, onGameOver]);
 
     const nextGuessHandler = direction => {
-        console.log(direction, currentGuess, userChoice)
         if((direction === 'lower' && currentGuess < userChoice) || 
            (direction === 'greater' && currentGuess > userChoice))
         {
